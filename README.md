@@ -4,21 +4,36 @@ A simple REST API for creating/reading/updating/deleting products on a json file
 
 ### Available routes
 
-- GET /api/products - get all products
-- GET /api/products/:id - get individual product by ID
+- **GET /api/products** - get all products
+- **GET /api/products/:id** - get individual product by ID
 
-- POST /api/products - add a new product:
+- **POST /api/products** - add a new product:
 
-  JSON:
+  _JSON:_
 
   ```
   {
-  "title": "Title here"
-  "description": "Description here"
-  "price": 100
+     "title": "Title here"
+     "description": "Description here"
+     "price": 100
   }
   ```
 
-- PUT /api/products/:id - update a product (doesn't require all fields to be in request - e.g. can just update title if required without having to specify description/price).
+- **PUT /api/products/:id** - update a product (doesn't require all fields to be in request - e.g. can just update title if required without having to specify description/price):
 
-- DELETE /api/products/:id - delete a product
+_JSON:_
+
+```
+{
+   "title": "This is the new product title"
+}
+```
+
+- **DELETE /api/products/:id** - delete a product
+
+### Setup
+
+```
+npm install
+npm run dev
+```
