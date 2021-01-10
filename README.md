@@ -21,13 +21,13 @@ A simple REST API for creating/reading/updating/deleting products on a json file
 
 - **PUT /api/products/:id** - update a product (doesn't require all fields to be in request - e.g. can just update title if required without having to specify description/price):
 
-_JSON:_
+  _JSON:_
 
-```
-{
-   "title": "This is the new product title"
-}
-```
+  ```
+  {
+     "title": "This is the new product title"
+  }
+  ```
 
 - **DELETE /api/products/:id** - delete a product
 
