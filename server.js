@@ -16,10 +16,7 @@ const server = http.createServer((req, res) => {
     getProducts(req, res);
 
     // Else check if requesting specific ID via regex (/api/products/:id)
-  } else if (
-    req.url.match(/\/api\/products\/([a-z0-9-]+)/) &&
-    req.method === "GET"
-  ) {
+  } else if (req.url.match(/\/api\/products\/\w+/) && req.method === "GET") {
     // Split URL into array to get ID - get 3rd index (/id)
     const id = req.url.split("/")[3];
     getProduct(req, res, id);
@@ -29,19 +26,13 @@ const server = http.createServer((req, res) => {
     createProduct(req, res);
 
     // Else check for PUT req & specific ID - to update product
-  } else if (
-    req.url.match(/\/api\/products\/([a-z0-9-]+)/) &&
-    req.method === "PUT"
-  ) {
+  } else if (req.url.match(/\/api\/products\/\w+/) && req.method === "PUT") {
     // Split URL into array to get ID - get 3rd index (/id)
     const id = req.url.split("/")[3];
     updateProduct(req, res, id);
 
     // Else check for DELETE req & specific ID - to delete product
-  } else if (
-    req.url.match(/\/api\/products\/([a-z0-9-]+)/) &&
-    req.method === "DELETE"
-  ) {
+  } else if (req.url.match(/\/api\/products\/\w+/) && req.method === "DELETE") {
     // Split URL into array to get ID - get 3rd index (/id)
     const id = req.url.split("/")[3];
     deleteProduct(req, res, id);
